@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="app-input">
-      <div>
+      <div class="input">
         <label>モンスター</label>
         <select v-model="selectedMonster">
           <option
@@ -13,21 +13,18 @@
           </option>
         </select>
       </div>
-      <div>
+      <div class="input">
         <label>守備力</label>
         <input type="number" v-model="def" />
       </div>
     </div>
     <div class="app-results" v-if="selectedMonster && def">
-      <div
+      <damage-calc
         class="results"
-        v-for="skillNo of selectedMonster.skills"
-        :key="skillNo"
-      >
-        <p>行動：{{ skillName(skillNo) }}</p>
-        <p>最大ダメージ：{{ maxDamage(skillNo) }}</p>
-        <p>最小ダメージ：{{ minDamage(skillNo) }}</p>
-      </div>
+        v-for="number of selectedMonster.skill_numbers"
+        :key="number"
+        v-bind="calculationParameters(number)"
+      />
     </div>
   </div>
 </template>
@@ -35,9 +32,11 @@
 <script>
 import { MONSTERS } from '@/assets/data/monsters'
 import { SKILLS } from '@/assets/data/skills'
+import DamageCalc from '@/components/DamageCalc'
 
 export default {
   name: 'App',
+  components: { DamageCalc },
   data() {
     return {
       selectedMonster: null,
@@ -47,31 +46,15 @@ export default {
   computed: {
     monsters() {
       return MONSTERS
-    },
-    baseDamage() {
-      return (
-        this.selectedMonster && this.selectedMonster.attack / 2 - this.def / 4
-      )
-    },
-    damageRange() {
-      return this.baseDamage / 16 + 1
     }
   },
   methods: {
-    skillName(no) {
-      return SKILLS.find(s => s.no === Number(no)).name
-    },
-    maxDamage(no) {
-      return Math.floor(
-        (this.baseDamage + this.damageRange) *
-          SKILLS.find(s => s.no === Number(no)).magnification
-      )
-    },
-    minDamage(no) {
-      return Math.floor(
-        (this.baseDamage - this.damageRange) *
-          SKILLS.find(s => s.no === Number(no)).magnification
-      )
+    calculationParameters(number) {
+      return {
+        ...SKILLS.find(s => s.no === number),
+        atk: this.selectedMonster.atk,
+        def: Number(this.def)
+      }
     }
   }
 }
@@ -82,12 +65,8 @@ export default {
   display: flex;
 }
 
-#app select {
+.input select {
   padding-bottom: 4px;
-}
-
-#app p {
-  margin: 0;
 }
 
 .results {
