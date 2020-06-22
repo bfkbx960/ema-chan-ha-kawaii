@@ -35,10 +35,12 @@ export default {
       return this.base / 16 + 1
     },
     max() {
-      return Math.floor(this.base + this.range)
+      const damage = Math.floor(this.base + this.range)
+      return damage > 0 ? damage : 1
     },
     min() {
-      return Math.floor(this.base - this.range)
+      const damage = Math.floor(this.base - this.range)
+      return damage > 0 ? damage : 0
     }
   }
 }
