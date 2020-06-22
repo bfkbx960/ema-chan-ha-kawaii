@@ -1,5 +1,12 @@
 <template>
   <div id="app">
+    <div class="app-memo">
+      <p>メモ</p>
+      <p>
+        ダメージ倍率が分からない所があるため間違ってる可能性が結構あるので注意してください。
+      </p>
+      <p>主Lv13守りの種1ユグノア＋竜のうろこ+ちからのゆびわ：守備力104</p>
+    </div>
     <div class="app-input">
       <div class="input">
         <label>モンスター</label>
@@ -61,6 +68,10 @@ export default {
 </script>
 
 <style>
+.app-memo p {
+  margin: 0;
+}
+
 .app-input {
   display: flex;
 }
