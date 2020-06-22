@@ -1,11 +1,18 @@
 <template>
   <div id="app">
     <div class="app-memo">
-      <p>メモ</p>
+      <h2>エマちゃんはかわいいα（DQ11物理被ダメージ計算のようなもの）</h2>
       <p>
-        ダメージ倍率が分からない所があるため間違ってる可能性が結構あるので注意してください。
+        データは投入中です。
       </p>
-      <p>主Lv13守りの種1ユグノア＋竜のうろこ+ちからのゆびわ：守備力104</p>
+      <p>
+        味方が使える特技で敵が使ってくるものについて、ダメージ倍率が不明です。
+      </p>
+      <p>
+        私は解析できない&解析情報を知らないため、実測値で見るしかなさそうです。
+      </p>
+      <p>このくらいかなってのあれば教えてください。</p>
+      <p>主Lv13守りの種1ユグノア＋竜のうろこ+ちからのゆびわ守備力:104</p>
     </div>
     <div class="app-input">
       <div class="input">
@@ -47,7 +54,7 @@ export default {
   data() {
     return {
       selectedMonster: null,
-      def: 0
+      def: 104
     }
   },
   computed: {
@@ -68,6 +75,10 @@ export default {
 </script>
 
 <style>
+.app-memo {
+  margin-bottom: 12px;
+}
+
 .app-memo p {
   margin: 0;
 }

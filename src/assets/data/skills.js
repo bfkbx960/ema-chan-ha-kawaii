@@ -21,27 +21,27 @@ export const SKILLS = [
   },
   {
     no: 5,
-    name: 'かえん斬り（+5ダメージ）',
+    name: 'かえん斬り（+5ダメージ） ※倍率調査中',
     magnification: 1.2
   },
   {
     no: 6,
-    name: 'ミラクルソード',
+    name: 'ミラクルソード　※倍率調査中',
     magnification: 1
   },
   {
     no: 7,
-    name: 'デュアルカッター（2Hit） ※倍率調査中',
+    name: 'デュアルカッター ※倍率調査中',
     magnification: 1.2
   },
   {
     no: 8,
-    name: 'ムーンサルト',
+    name: 'ムーンサルト ※倍率調査中',
     magnification: 1.3
   },
   {
     no: 9,
-    name: 'しんくうげり',
+    name: 'しんくうげり ※倍率調査中',
     magnification: 1.2
   },
   {
