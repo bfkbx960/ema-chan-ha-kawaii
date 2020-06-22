@@ -26,6 +26,10 @@ export default {
       type: Number,
       required: true
     },
+    powerMagnification: {
+      type: Number,
+      default: 1.0
+    },
     isZone: {
       type: Boolean,
       default: false
@@ -50,7 +54,7 @@ export default {
     },
     base() {
       return (
-        (this.atk / 2) * this.zoneMagnification -
+        (this.atk / 2) * this.zoneMagnification * this.powerMagnification -
         (this.def / 4) * this.buffMagnifigation[this.allyBuff]
       )
     },

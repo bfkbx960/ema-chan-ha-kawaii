@@ -47,7 +47,7 @@
     <div class="app-results" v-if="monster && def">
       <damage-calc
         class="results"
-        v-for="number of monster.skill_numbers"
+        v-for="number of monster.skillNumbers"
         :key="number"
         v-bind="calculationParameters(number)"
       />
