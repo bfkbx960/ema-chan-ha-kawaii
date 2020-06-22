@@ -3,10 +3,10 @@
     <div class="app-memo">
       <h2>エマちゃんはかわいいα（DQ11物理被ダメージ計算のようなもの）</h2>
       <p>
-        データは投入中です。手伝ってくれる人募集してます。
+        調査とか手伝ってくれる人募集してます。
       </p>
       <p>
-        味方が使える特技で敵が使ってくるものについて、ダメージ倍率が不明です。
+        敵の特技は基本的にダメージ倍率が不明です。
       </p>
       <p>
         私は解析できない&解析情報を知らないため、実測値で見るしかなさそうです。
@@ -17,7 +17,7 @@
     <div class="app-input">
       <div class="input">
         <label>モンスター</label>
-        <select v-model="selectedMonster">
+        <select v-model="monster">
           <option
             v-for="monster of monsters"
             :key="monster.no"
@@ -31,11 +31,23 @@
         <label>守備力</label>
         <input type="number" v-model="def" />
       </div>
+      <div class="input">
+        <label>敵ゾーン状態</label>
+        <input type="checkbox" v-model="isZone" />
+      </div>
+      <div class="input">
+        <label>味方バフ</label>
+        <select v-model="allyBuff">
+          <option v-for="value of buffValues" :key="value" :value="value">
+            {{ value }}
+          </option>
+        </select>
+      </div>
     </div>
-    <div class="app-results" v-if="selectedMonster && def">
+    <div class="app-results" v-if="monster && def">
       <damage-calc
         class="results"
-        v-for="number of selectedMonster.skill_numbers"
+        v-for="number of monster.skill_numbers"
         :key="number"
         v-bind="calculationParameters(number)"
       />
@@ -53,21 +65,28 @@ export default {
   components: { DamageCalc },
   data() {
     return {
-      selectedMonster: null,
-      def: 104
+      monster: null,
+      def: 104,
+      isZone: false,
+      allyBuff: '0'
     }
   },
   computed: {
     monsters() {
       return MONSTERS
+    },
+    buffValues() {
+      return ['-2', '-1', '0', '+1', '+2']
     }
   },
   methods: {
     calculationParameters(number) {
       return {
         ...SKILLS.find(s => s.no === number),
-        atk: this.selectedMonster.atk,
-        def: Number(this.def)
+        atk: this.monster.atk,
+        def: Number(this.def),
+        isZone: this.isZone,
+        allyBuff: this.allyBuff
       }
     }
   }

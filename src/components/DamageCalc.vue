@@ -25,21 +25,44 @@ export default {
     magnification: {
       type: Number,
       required: true
+    },
+    isZone: {
+      type: Boolean,
+      default: false
+    },
+    allyBuff: {
+      type: String,
+      default: '0'
     }
   },
   computed: {
+    zoneMagnification() {
+      return this.isZone ? 1.2 : 1.0
+    },
+    buffMagnifigation() {
+      return {
+        '-2': 0.25,
+        '-1': 0.5,
+        '0': 1.0,
+        '+1': 1.5,
+        '+2': 2.0
+      }
+    },
     base() {
-      return (this.atk / 2) * this.magnification - this.def / 4
+      return (
+        (this.atk / 2) * this.zoneMagnification -
+        (this.def / 4) * this.buffMagnifigation[this.allyBuff]
+      )
     },
     range() {
       return this.base / 16 + 1
     },
     max() {
-      const damage = Math.floor(this.base + this.range)
+      const damage = Math.floor((this.base + this.range) * this.magnification)
       return damage > 0 ? damage : 1
     },
     min() {
-      const damage = Math.floor(this.base - this.range)
+      const damage = Math.floor((this.base - this.range) * this.magnification)
       return damage > 0 ? damage : 0
     }
   }
