@@ -6,12 +6,12 @@ export const SKILLS = [
   },
   {
     no: 2,
-    name: 'するどいツメ ※調査中',
+    name: 'するどいツメ',
     magnification: 1.2
   },
   {
     no: 3,
-    name: 'ツメラッシュ（6Hit） ※調査中',
+    name: 'ツメラッシュ（6Hit）',
     magnification: 0.5
   },
   {
@@ -47,12 +47,12 @@ export const SKILLS = [
   },
   {
     no: 10,
-    name: '死グモのとげ ※調査中',
+    name: '死グモのとげ',
     magnification: 0.9
   },
   {
     no: 11,
-    name: 'もうどく攻撃 ※調査中',
+    name: 'もうどく攻撃',
     magnification: 1.0
   }
 ]
