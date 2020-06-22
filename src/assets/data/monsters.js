@@ -73,7 +73,7 @@ export const MONSTERS = [
   },
   {
     no: 13,
-    name: 'マスク・ザ・ハンサム ※調査中',
+    name: 'マスク・ザ・ハンサム',
     atk: 78,
     skill_numbers: [1, 7]
   },
