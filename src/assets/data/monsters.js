@@ -94,5 +94,41 @@ export const MONSTERS = [
     name: 'アラクラトロ',
     atk: 122,
     skillNumbers: [1, 10, 11]
+  },
+  {
+    no: 17,
+    name: 'クラーゴン',
+    atk: 161,
+    skillNumbers: [1, 12]
+  },
+  {
+    no: 18,
+    name: 'ごくらくちょう',
+    atk: 182,
+    skillNumbers: [1, 13]
+  },
+  {
+    no: 19,
+    name: 'ヘルコンドル',
+    atk: 105,
+    skillNumbers: [1, 13]
+  },
+  {
+    no: 20,
+    name: 'メルトア',
+    atk: 160,
+    skillNumbers: [1]
+  },
+  {
+    no: 21,
+    name: 'ムンババ',
+    atk: 141,
+    skillNumbers: [1, 14]
+  },
+  {
+    no: 22,
+    name: 'リーズレット',
+    atk: 181,
+    skillNumbers: [1]
   }
 ]

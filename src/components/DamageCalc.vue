@@ -37,13 +37,17 @@ export default {
     allyBuff: {
       type: String,
       default: '0'
+    },
+    enemyBuff: {
+      type: String,
+      default: '0'
     }
   },
   computed: {
     zoneMagnification() {
       return this.isZone ? 1.2 : 1.0
     },
-    buffMagnifigation() {
+    allyBuffMagnification() {
       return {
         '-2': 0.25,
         '-1': 0.5,
@@ -52,10 +56,22 @@ export default {
         '+2': 2.0
       }
     },
+    enemyBuffMagnification() {
+      return {
+        '-2': 0.5,
+        '-1': 0.75,
+        '0': 1.0,
+        '+1': 1.25,
+        '+2': 1.5
+      }
+    },
     base() {
       return (
-        (this.atk / 2) * this.zoneMagnification * this.powerMagnification -
-        (this.def / 4) * this.buffMagnifigation[this.allyBuff]
+        (this.atk / 2) *
+          this.enemyBuffMagnification[this.enemyBuff] *
+          this.zoneMagnification *
+          this.powerMagnification -
+        (this.def / 4) * this.allyBuffMagnification[this.allyBuff]
       )
     },
     range() {

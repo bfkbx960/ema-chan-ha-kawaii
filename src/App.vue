@@ -39,6 +39,14 @@
         <input type="checkbox" v-model="isZone" />
       </div>
       <div class="input">
+        <label>敵バフ</label>
+        <select v-model="enemyBuff">
+          <option v-for="value of buffValues" :key="value" :value="value">
+            {{ value }}
+          </option>
+        </select>
+      </div>
+      <div class="input">
         <label>味方バフ</label>
         <select v-model="allyBuff">
           <option v-for="value of buffValues" :key="value" :value="value">
@@ -71,6 +79,7 @@ export default {
       monster: null,
       def: 104,
       isZone: false,
+      enemyBuff: '0',
       allyBuff: '0'
     }
   },
@@ -89,6 +98,7 @@ export default {
         atk: this.monster.atk,
         def: Number(this.def),
         isZone: this.isZone,
+        enemyBuff: this.enemyBuff,
         allyBuff: this.allyBuff
       }
     }

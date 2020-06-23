@@ -54,5 +54,20 @@ export const SKILLS = [
     no: 11,
     name: 'もうどく攻撃',
     magnification: 1.0
+  },
+  {
+    no: 12,
+    name: 'ばくれつけん',
+    magnification: 0.3
+  },
+  {
+    no: 13,
+    name: 'わしづかみ',
+    magnification: 1.2
+  },
+  {
+    no: 14,
+    name: 'けとばし ※調査中',
+    magnification: 1.25
   }
 ]
