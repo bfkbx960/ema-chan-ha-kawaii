@@ -130,5 +130,11 @@ export const MONSTERS = [
     name: 'リーズレット',
     atk: 181,
     skillNumbers: [1]
+  },
+  {
+    no: 23,
+    name: 'ゾルデ',
+    atk: 161,
+    skillNumbers: [1, 15, 16]
   }
 ]

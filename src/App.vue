@@ -15,7 +15,14 @@
       <p>
         調査とか手伝ってくれる人募集してます。
       </p>
-      <p>主Lv13守りの種1ユグノア＋竜のうろこ+ちからのゆびわ守備力:104</p>
+      <p>
+        主Lv13守りの種1ユグノア+竜のうろこ+ちからのゆびわ守備力:104
+        <button @click="vsArachtagon">適用</button>
+      </p>
+      <p>
+        主Lv22守りの種2まほうの盾+しっぷう+シルメ守備力:148
+        <button @click="vsTyriant">適用</button>
+      </p>
     </div>
     <div class="app-input">
       <div class="input">
@@ -101,6 +108,14 @@ export default {
         enemyBuff: this.enemyBuff,
         allyBuff: this.allyBuff
       }
+    },
+    vsArachtagon() {
+      this.def = 104
+      this.monster = this.monsters.find(m => m.no === 16)
+    },
+    vsTyriant() {
+      this.def = 148
+      this.monster = this.monsters.find(m => m.no === 23)
     }
   }
 }
