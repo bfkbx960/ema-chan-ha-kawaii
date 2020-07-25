@@ -17,8 +17,7 @@ export const SKILLS = [
   {
     no: 4,
     name: '通常攻撃（逆手）',
-    magnification: 1.0,
-    powerMagnification: 0.5
+    magnification: 0.5
   },
   {
     no: 5,
